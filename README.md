@@ -15,11 +15,17 @@ A completely free and private Google Chrome extension (built on **Manifest V3**)
 
 Since this extension runs locally and skips the Chrome Web Store registration, setup takes less than a minute:
 
+- `[random-refresher.zip](https://github.com/PavelNazaro/random-auto-refresher-chrome-plugin/blob/main/random-refresher.zip)` — zip with all project files. Just download in and add into your chrome.
+
+Or.
+
+You can also download all 4 files below and put them in the same folder and add into your chrome:
+
 1. **Download the source code** as a ZIP archive and extract it into a local folder (e.g., `random-auto-refresher`).
 2. Open Google Chrome and navigate to: `chrome://extensions/`
 3. In the top-right corner, toggle the **"Developer mode"** switch on.
 4. In the top-left corner, click the **"Load unpacked"** button.
-5. Select the folder containing your project files (`manifest.json`, `popup.html`, etc.).
+5. Select the folder containing your project files (`manifest.json`, `popup.html`, `popup.js`, `background.js`).
 6. Done! Pin the extension to your browser toolbar for quick access.
 
 ## 📁 Project Structure
