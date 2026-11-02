@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Random Auto Refresher Pro",
+  "version": "1.9",
+  "description": "Обновляет вкладки с рандомной погрешностью, активностью и ведением локальной истории.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

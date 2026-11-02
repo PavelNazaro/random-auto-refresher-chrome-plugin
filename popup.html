@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; font-family: Arial, sans-serif; padding: 12px; margin: 0; box-sizing: border-box; position: relative; padding-bottom: 25px; }
+    h3 { margin: 0 0 12px 0; font-size: 14px; text-align: center; }
+    .field { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    input[type="number"] { width: 70px; padding: 4px; border: 1px solid #ccc; border-radius: 4px; }
+    
+    .checkbox-container { font-size: 11px; color: #555; display: flex; flex-direction: column; gap: 6px; margin: 12px 0; align-items: flex-start; }
+    .checkbox-item { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    
+    button { width: 100%; padding: 7px; margin-top: 5px; cursor: pointer; font-weight: bold; border-radius: 4px; border: none; }
+    #start { background-color: #4CAF50; color: white; display: none; }
+    #pause { background-color: #ff9800; color: white; display: none; }
+    #stop { background-color: #f44336; color: white; display: none; }
+    
+    hr { border: 0; border-top: 1px solid #eee; margin: 10px 0; }
+    .section-title { font-size: 12px; font-weight: bold; margin-bottom: 6px; color: #333; }
+    
+    #activeList { max-height: 110px; overflow-y: auto; font-size: 11px; margin-bottom: 5px; }
+    .active-item { display: flex; justify-content: space-between; align-items: center; padding: 4px; background: #edf7ed; border-radius: 4px; margin-bottom: 4px; border-left: 3px solid #4CAF50; }
+    .active-item.paused { background: #fff3e0; border-left-color: #ff9800; }
+    .active-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 140px; font-weight: 500; }
+    .active-timer { font-weight: bold; color: #d9534f; margin-right: 4px; min-width: 25px; text-align: right; }
+    .active-timer.paused { color: #ff9800; }
+    
+    #historyList { max-height: 110px; overflow-y: auto; font-size: 11px; padding-right: 2px; }
+    .history-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 4px; border-bottom: 1px solid #eee; margin-bottom: 4px; }
+    .history-info { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 160px; }
+    .history-url { color: #0066cc; text-decoration: none; display: block; overflow: hidden; text-overflow: ellipsis; font-weight: bold; }
+    
+    .actions-wrapper { display: flex; gap: 3px; align-items: center; }
+    .action-mini-btn { padding: 3px 5px; margin: 0; color: white; font-size: 10px; font-weight: normal; width: auto; border-radius: 3px; border: none; cursor: pointer; }
+    .btn-start { background-color: #008CBA; }
+    .btn-pause { background-color: #ff9800; }
+    .btn-stop { background-color: #f44336; }
+    .btn-delete { background-color: #e7e7e7; color: #555; font-weight: bold; }
+    .btn-delete:hover { background-color: #ddd; color: #000; }
+    
+    #stopAll { background-color: #555555; color: white; margin-top: 6px; font-size: 11px; padding: 5px; display: none; }
+    #stopAll:hover { background-color: #333333; }
+    
+    .credits { position: absolute; bottom: 4px; right: 12px; font-size: 10px; color: #aaa; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h3>Автообновление страниц</h3>
+  
+  <div class="field" id="minField">
+    <label id="timeLabel">Время (сек):</label>
+    <input type="number" id="minTime" value="50" min="1">
+  </div>
+  <div class="field" id="maxField" style="display: none;">
+    <label>Макс. (сек):</label>
+    <input type="number" id="maxTime" value="70" min="1">
+  </div>
+  
+  <div class="checkbox-container">
+    <label class="checkbox-item">
+      <input type="checkbox" id="rangeTime">
+      <span>Диапазон времени</span>
+    </label>
+    <label class="checkbox-item">
+      <input type="checkbox" id="simulateUserActivity">
+      <span>Имитация активности мыши/кликов</span>
+    </label>
+  </div>
+
+  <button id="start">Запустить</button>
+  <button id="pause">Пауза</button>
+  <button id="stop">Остановить текущую</button>
+
+  <hr>
+  <div class="section-title" id="activeSectionTitle">Активные вкладки: 0</div>
+  <div id="activeList"></div>
+  <button id="stopAll">Остановить абсолютно ВСЕ таймеры</button>
+
+  <hr>
+  <div class="section-title">История и быстрый старт:</div>
+  <div id="historyList"></div>
+
+  <div class="credits">by PavelNazaro</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
