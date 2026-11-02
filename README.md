@@ -15,7 +15,7 @@ A completely free and private Google Chrome extension (built on **Manifest V3**)
 
 Since this extension runs locally and skips the Chrome Web Store registration, setup takes less than a minute:
 
-- `[random-refresher.zip](https://github.com/PavelNazaro/random-auto-refresher-chrome-plugin/blob/main/random-refresher.zip)` — zip with all project files. Just download in and add into your chrome.
+- [random-refresher.zip](https://github.com/PavelNazaro/random-auto-refresher-chrome-plugin/blob/main/random-refresher.zip) — zip with all project files. Just download in and add into your chrome.
 
 Or.
 
